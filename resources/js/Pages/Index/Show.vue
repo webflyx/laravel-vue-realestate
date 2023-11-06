@@ -1,6 +1,6 @@
 <template>
-    <div> Show vue</div>
-    <Link href="/">Link to index</Link>
+  <div> Show vue</div>
+  <Link href="/">Link to index</Link>
 </template>
 
 <script setup>
