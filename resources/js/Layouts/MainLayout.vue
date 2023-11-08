@@ -1,37 +1,36 @@
 <template>
-  <Link :href="route('listing.index')">All Listing</Link>
-  <Link :href="route('listing.create')">Create Listing</Link>
+  <header class="border-b border-gray-400 px-4 py-2 mb-4">
+    <div class="flex items-center justify-between container mx-auto">
+      <div>
+        <nav class="text-lg">
+          <Link :href="route('listing.index')">All Listings</Link>
+        </nav>
+      </div>
+      <Link class="text-2xl font-medium text-blue-500 dark:text-blue-400" :href="route('listing.index')">LaraZillow</Link>
+      <div>
+        <Link class="bg-blue-700 text-white px-4 py-2 rounded-md" :href="route('listing.create')">+ New Listing</Link>
+      </div>
+    </div>
+  </header>
 
-  <!-- <div>This is a timer {{ timer }}</div> -->
-  <div v-if="flashSuccess" class="success">
-    {{ flashSuccess }}
-  </div>
+  <main class="container mx-auto p-4">
+    <div v-if="flashSuccess" class="my-6 rounded-sm bg-green-600 px-4 py-2 text-white">
+      {{ flashSuccess }}
+    </div>
 
-  <div>
-    <slot>Default</slot>
-  </div>
+    <div>
+      <slot>Default</slot>
+    </div>
+  </main>
 </template>
 
 <script setup>
 import { Link, usePage } from '@inertiajs/vue3'
 import { computed } from 'vue'
 
-// import { ref } from 'vue'
-
 const page = usePage()
 const flashSuccess = computed(
   () => page.props.flash.success,
 )
 
-
-// const timer = ref(0)
-// setInterval(() => timer.value++, 1000)
-
 </script>
-
-<style scoped>
-.success{
-  background: green;
-  color: white;
-}
-</style>
