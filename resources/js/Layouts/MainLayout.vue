@@ -1,8 +1,6 @@
 <template>
-  <Link href="/">Index</Link>
-  <Link href="/show">
-    Show
-  </Link>
+  <Link :href="route('listing.index')">All Listing</Link>
+  <Link :href="route('listing.create')">Create Listing</Link>
 
   <!-- <div>This is a timer {{ timer }}</div> -->
   <div v-if="flashSuccess" class="success">

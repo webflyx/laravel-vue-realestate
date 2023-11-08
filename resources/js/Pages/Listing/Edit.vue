@@ -41,7 +41,7 @@
       <div v-if="form.errors.price">{{ form.errors.price }}</div>
     </div>
     <div>
-      <button type="submit">Create</button>
+      <button type="submit">Edit</button>
     </div>
   </form>
 </template>
@@ -64,7 +64,7 @@ const form = useForm({
   price: props.listing.price,
 })
 
-const update = () => form.put(`/listing/${props.listing.id}`)
+const update = () => form.put(route('listing.update', {listing: props.listing.id}))
 </script>
 
 <style scoped>
