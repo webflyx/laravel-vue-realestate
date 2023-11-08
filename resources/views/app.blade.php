@@ -7,10 +7,10 @@
         <title>Laravel + Vue</title>
         
         @routes
-        @vite('resources/js/app.js')
+        @vite(['resources/js/app.js', 'resources/css/app.css'])
         @inertiaHead
     </head>
-    <body class="antialiased">
+    <body class="bg-white dark:bg-gray-800">
         @inertia
     </body>
 </html>
