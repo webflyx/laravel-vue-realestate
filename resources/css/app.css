@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@layer components {
+    .primary-btn{
+        @apply bg-blue-700 hover:bg-blue-800 text-white px-4 py-2 rounded-md;
+    }
+
+    label {
+        @apply text-gray-700 text-sm font-medium mb-1 block dark:text-white
+    }
+
+    input[type="text"] {
+        @apply border border-gray-400 w-full rounded-md
+    }
+}

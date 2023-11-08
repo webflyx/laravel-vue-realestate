@@ -8,7 +8,7 @@
       </div>
       <Link class="text-2xl font-medium text-blue-500 dark:text-blue-400" :href="route('listing.index')">LaraZillow</Link>
       <div>
-        <Link class="bg-blue-700 text-white px-4 py-2 rounded-md" :href="route('listing.create')">+ New Listing</Link>
+        <Link class="primary-btn" :href="route('listing.create')">+ New Listing</Link>
       </div>
     </div>
   </header>
