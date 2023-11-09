@@ -13,12 +13,13 @@
     <div class="mt-4">
       <button class="btn-primary w-full" type="submit">Login</button>
     </div>
+    <Link class="block mt-4 text-gray-600 dark:text-gray-400 text-center" :href="route('user-account.create')">Don't have an account? Click here</Link>
   </form>
 </template>
 
 <script setup>
 import InputError from '@/Components/UI/InputError.vue'
-import { useForm } from '@inertiajs/vue3'
+import { Link, useForm } from '@inertiajs/vue3'
 
 const form = useForm({
   'email': null,
