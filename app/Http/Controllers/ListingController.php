@@ -10,7 +10,8 @@ class ListingController extends Controller
 
     public function __construct()
     {
-        $this->middleware("auth")->only(['create', 'store', 'edit', 'destroy']);
+        // $this->middleware("auth")->only(['create', 'store', 'edit', 'destroy']);
+        $this->authorizeResource(Listing::class);
     }
 
     public function index()
