@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 class ListingController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware("auth")->only(['create', 'store', 'edit', 'destroy']);
+    }
+
     public function index()
     {
         return inertia('Listing/Index', [
