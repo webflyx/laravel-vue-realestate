@@ -9,6 +9,14 @@ use Illuminate\Auth\Access\Response;
 class ListingPolicy
 {
 
+    public function before(?User $user, $ability)
+    {
+        if($user->is_admin /* && $ability === 'update' -- if need set for specify method*/)
+        {
+            return true;
+        }
+    }
+
     public function viewAny(?User $user): bool
     {
         return true;
