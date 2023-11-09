@@ -41,7 +41,7 @@
       <InputError :error="form.errors.price" />
     </div>
     <div class="col-span-12">
-      <button type="submit" class="primary-btn w-full">Edit</button>
+      <button type="submit" class="btn-primary w-full">Edit</button>
     </div>
   </form>
 </template>

@@ -7,13 +7,18 @@
         </nav>
       </div>
       <Link class="text-2xl font-medium text-blue-500 dark:text-blue-400" :href="route('listing.index')">LaraZillow</Link>
-      <div>
-        <Link class="primary-btn" :href="route('listing.create')">+ New Listing</Link>
+      <div v-if="user" class="flex items-center gap-4">
+        <div>{{ user.name }}</div>
+        <Link class="btn-primary" :href="route('listing.create')">+ New Listing</Link>
+        <Link method="DELETE" as="button" :href="route('logout')">Logout</Link>
+      </div>
+      <div v-else>
+        <Link class="btn-primary" :href="route('login')">Sign-In</Link>
       </div>
     </div>
   </header>
 
-  <main class="container mx-auto p-4">
+  <main class="container mx-auto p-4 w-full">
     <div v-if="flashSuccess" class="my-6 rounded-sm bg-green-600 px-4 py-2 text-white">
       {{ flashSuccess }}
     </div>
@@ -32,5 +37,7 @@ const page = usePage()
 const flashSuccess = computed(
   () => page.props.flash.success,
 )
+
+const user = computed( () => page.props.user)
 
 </script>

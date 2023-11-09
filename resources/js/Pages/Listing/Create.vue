@@ -63,12 +63,3 @@ const form = useForm({
 
 const create = () => form.post(route('listing.store'))
 </script>
-
-<style scoped>
-label{
-    margin-right: 8px;
-}
-input{
-    margin-bottom: 8px;
-}
-</style>
