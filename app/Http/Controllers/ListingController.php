@@ -30,29 +30,6 @@ class ListingController extends Controller
         ]);
     }
 
-    public function create()
-    {
-        return inertia('Listing/Create');
-    }
-
-    public function store(Request $request)
-    {
-        $request->user()->listings()->create(
-            $request->validate([
-                'beds' => 'required|numeric|min:1|max:20',
-                'baths' => 'required|numeric|min:1|max:20',
-                'area' => 'required|numeric|min:15|max:1500',
-                'city' => 'required|string|min:2|max:255',
-                'code' => 'required|string|min:2|max:255',
-                'street' => 'required|string|min:2|max:255',
-                'street_nr' => 'required|string|min:2|max:255',
-                'price' => 'required|numeric|min:10000|max:20000000',
-            ])
-        );
-
-        return redirect()->route('listing.index')
-            ->with('success', 'Listing was created');
-    }
 
     public function show(Listing $listing)
     {
@@ -61,27 +38,4 @@ class ListingController extends Controller
         ]);
     }
 
-    public function edit(Listing $listing)
-    {
-        return inertia('Listing/Edit', [
-            'listing' => $listing,
-        ]);
-    }
-
-    public function update(Request $request, Listing $listing)
-    {
-        $listing->update($request->validate([
-            'beds' => 'required|numeric|min:1|max:20',
-            'baths' => 'required|numeric|min:1|max:20',
-            'area' => 'required|numeric|min:15|max:1500',
-            'city' => 'required|string|min:2|max:255',
-            'code' => 'required|string|min:2|max:255',
-            'street' => 'required|string|min:2|max:255',
-            'street_nr' => 'required|string|min:2|max:255',
-            'price' => 'required|numeric|min:10000|max:20000000',
-        ]));
-
-        return redirect()->route('listing.index')
-            ->with('success', 'Listing was updated');
-    }
 }
