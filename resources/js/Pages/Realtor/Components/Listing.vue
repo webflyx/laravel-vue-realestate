@@ -12,7 +12,7 @@
     <div class="flex gap-2">
       <Link class="btn-second" :href="route('listing.show', {listing: listing.id})">Preview</Link>
       <Link class="btn-second" :href="route('listing.edit', {listing: listing.id})">Edit</Link>
-      <Link class="btn-second" :href="route('listing.destroy', {listing: listing.id})" method="DELETE" as="button">Delete</Link>
+      <Link class="btn-second" :href="route('realtor.listing.destroy', {listing: listing.id})" method="DELETE" as="button">Delete</Link>
     </div>
   </Box>
 </template>
