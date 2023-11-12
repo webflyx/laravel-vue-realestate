@@ -7,6 +7,10 @@
         <button type="submit" class="btn-primary" :class="{'opacity-25':!canUpload}" :disabled="!canUpload">Upload</button>
         <button type="reset" class="btn-second" @click="reset">Reset</button>
       </div>
+      <div v-if="form.errors">
+        <div v-for="error in form.errors" class="text-red-500">{{ error }}</div>
+      </div>
+      <InputError :error="form.errors" />
     </form>
   </Box>
 
