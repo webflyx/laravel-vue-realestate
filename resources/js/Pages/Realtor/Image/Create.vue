@@ -17,12 +17,14 @@
     <div class="grid grid-cols-4 gap-4">
       <div v-for="image in listing.images" :key="image.id">
         <img :src="image.src" />
+        <Link as="button" class="btn-second mt-2 w-full" :href="route('realtor.listing.image.destroy', {listing: listing.id, image: image.id})" method="DELETE">Delete</Link>
       </div>
     </div>
   </Box>
 </template>
 
 <script setup>
+import {Link} from '@inertiajs/vue3'
 import Box from '@/Components/UI/Box.vue'
 import NProgress from 'nprogress'
 import { router } from '@inertiajs/vue3'
