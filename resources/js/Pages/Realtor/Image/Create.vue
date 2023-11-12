@@ -13,8 +13,16 @@
 
 <script setup>
 import Box from '@/Components/UI/Box.vue'
+import NProgress from 'nprogress'
+import { router } from '@inertiajs/vue3'
 import { useForm } from '@inertiajs/vue3'
 import { computed } from 'vue'
+
+router.on('progress', (event) => {
+  if (event.detail.progress.percentage) {
+    NProgress.set((event.detail.progress.percentage / 100) * 0.9)
+  }
+})
 
 const canUpload = computed( () => form.images.length )
 
