@@ -1,7 +1,7 @@
 <template>
   <Box>
-    <form method="POST" :action="route('realtor.listing.image.store', listing.id)">
-      <input type="file" multiple />
+    <form method="POST" enctype="multipart/form-data" :action="route('realtor.listing.image.store', listing.id)">
+      <input type="file" multiple name="images[]" />
       <button type="submit" class="btn-primary">Save</button>
     </form>
   </Box>
