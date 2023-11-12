@@ -25,7 +25,7 @@ class Listing extends Model
 
     public function images(): HasMany
     {
-        return $this->hasMany(Listing::class);
+        return $this->hasMany(ListingImage::class);
     }
 
     protected $sortable = ['price', 'created_at'];

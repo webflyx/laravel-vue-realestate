@@ -9,6 +9,17 @@
       </div>
     </form>
   </Box>
+
+  <Box class="mt-4">
+    <template #header>
+      Current Images
+    </template>
+    <div class="grid grid-cols-4 gap-4">
+      <div v-for="image in listing.images" :key="image.id">
+        <img :src="image.src" />
+      </div>
+    </div>
+  </Box>
 </template>
 
 <script setup>
