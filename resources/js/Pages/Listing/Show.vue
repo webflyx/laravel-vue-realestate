@@ -54,6 +54,7 @@
           </div>
         </div>
       </Box>
+      <MakeOffer :listing="listing" :price="listing.price" @new-offer="offer = $event" />
     </div>
   </div>
 </template>
@@ -66,14 +67,17 @@ import Price from '@/Components/Price.vue'
 import Box from '@/Components/UI/Box.vue'
 import { useMonthlyPayment } from '@/Composables/useMonthlyPayment'
 import { ref } from 'vue'
+import MakeOffer from './Components/MakeOffer.vue'
 
 const props = defineProps({
   listing: Object,
 })
 
+const offer = ref(props.listing.price).value
+
 const interestRate = ref('2.5')
 const duration = ref('25')
 
-const {monthlyPayment, totalPaid, totalInterest} = useMonthlyPayment(props.listing.price, interestRate, duration)
+const {monthlyPayment, totalPaid, totalInterest} = useMonthlyPayment(offer, interestRate, duration)
 
 </script>

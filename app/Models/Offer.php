@@ -12,7 +12,7 @@ class Offer extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['amout', 'accepted_at', 'rejected_at'];
+    protected $fillable = ['amount', 'accepted_at', 'rejected_at', 'user_id'];
 
     public function user(): BelongsTo
     {
