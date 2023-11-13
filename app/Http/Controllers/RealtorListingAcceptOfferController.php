@@ -21,6 +21,11 @@ class RealtorListingAcceptOfferController extends Controller
             'rejected_at' => now(),
         ]);
 
+        //Check sold out in listing
+        $offer->listing->update([
+            'sold_at' => now(),
+        ]);
+
         return redirect()->back()->with('success', "Order was accepted. Other offers are rejected");
     }
 }

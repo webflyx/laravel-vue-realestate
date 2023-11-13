@@ -15,7 +15,7 @@ class Listing extends Model
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'beds', 'baths', 'area', 'city', 'code', 'street', 'street_nr', 'price',
+        'beds', 'baths', 'area', 'city', 'code', 'street', 'street_nr', 'price', 'sold_at'
     ];
 
     public function owner(): BelongsTo
@@ -67,9 +67,11 @@ class Listing extends Model
 
     public function scopeExceptSold(Builder $query): Builder
     {
-        return $query->doesntHave('offers')
-            ->orWhereHas('offers', function (Builder $query) {
-                $query->whereNull('accepted_at')->whereNull('rejected_at');
-            });
+        // return $query->doesntHave('offers')
+        //     ->orWhereHas('offers', function (Builder $query) {
+        //         $query->whereNull('accepted_at')->whereNull('rejected_at');
+        //     });
+
+        return $query->whereNull('sold_at');
     }
 }
