@@ -2,7 +2,8 @@
   <Box class="flex items-center gap-6 justify-between" :class="{'opacity-50': listing.deleted_at}">
     <div>
       <Link :href="route('listing.show', {listing: listing.id})">
-        <div class="flex gap-4 items-center">
+        <div class="flex gap-4 flex-col">
+          <div v-if="listing.sold_at" class="text-green-600 border-green-600 border rounded-md px-2 w-max">SOLD</div>
           <Price :price="listing.price" /> 
         </div> 
         <ListingSpace :listing="listing" />  
