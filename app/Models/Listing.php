@@ -64,4 +64,12 @@ class Listing extends Model
             $query->orderBy($value, $filters['order']) : $query
         );
     }
+
+    public function scopeExceptSold(Builder $query): Builder
+    {
+        return $query->doesntHave('offers')
+            ->orWhereHas('offers', function (Builder $query) {
+                $query->whereNull('accepted_at')->whereNull('rejected_at');
+            });
+    }
 }

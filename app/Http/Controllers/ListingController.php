@@ -20,6 +20,7 @@ class ListingController extends Controller
         $filters = $request->only(['priceFrom', 'priceTo', 'beds', 'baths', 'areaFrom', 'areaTo']);
 
         $listings = Listing::latest()
+            ->exceptSold()
             ->filter($filters)
             ->paginate(10)
             ->withQueryString();
@@ -43,5 +44,4 @@ class ListingController extends Controller
             'madeOffer' => $offer,
         ]);
     }
-
 }
