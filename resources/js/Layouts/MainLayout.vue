@@ -8,6 +8,10 @@
       </div>
       <Link class="text-2xl font-medium text-blue-500 dark:text-blue-400" :href="route('listing.index')">LaraZillow</Link>
       <div v-if="user" class="flex items-center gap-4">
+        <div class="relative">
+          🔔
+          <div class="absolute -top-2 -right-2 bg-red-600 text-sm rounded-full w-5 h-5 font-semibold flex items-center justify-center">{{ notificationCount }}</div>
+        </div>
         <Link :href="route('realtor.listing.index')">{{ user.name }}</Link>
         <Link class="btn-primary" :href="route('realtor.listing.create')">+ New Listing</Link>
         <Link method="DELETE" as="button" :href="route('logout')">Logout</Link>
@@ -40,5 +44,7 @@ const flashSuccess = computed(
 )
 
 const user = computed( () => page.props.user)
+
+const notificationCount = computed( () => page.props.user.notificationCount )
 
 </script>
