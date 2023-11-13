@@ -15,6 +15,7 @@
       <Link v-if="!listing.deleted_at" class="btn-second" :href="route('realtor.listing.destroy', {listing: listing.id})" method="DELETE" as="button">Delete</Link>
       <Link v-else class="btn-second" :href="route('realtor.listing.restore', {listing: listing.id})" method="PUT" as="button">Restore</Link>
       <Link class="btn-second col-span-3" :href="route('realtor.listing.image.create', {listing: listing.id})">Images ({{ listing.images_count }})</Link>
+      <Link class="btn-second col-span-3" :href="route('realtor.listing.show', {listing: listing.id})">Offers ({{ listing.offers_count }})</Link>
     </div>
   </Box>
 </template>

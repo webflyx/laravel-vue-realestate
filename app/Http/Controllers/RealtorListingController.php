@@ -23,9 +23,16 @@ class RealtorListingController extends Controller
         ];
 
         return inertia("Realtor/Index", [
-            'listings' => Auth::user()->listings()->withCount('images')->filter($filters)->latest()->paginate(3)->withQueryString(),
+            'listings' => Auth::user()->listings()->withCount('images')->withCount('offers')->filter($filters)->latest()->paginate(3)->withQueryString(),
             'filters' => $filters,
         ]);
+    }
+
+    public function show(Listing $listing)
+    {
+        $listing->load('offers', 'offers.user');
+
+        return inertia('Realtor/Show', compact('listing'));
     }
 
     public function create()
