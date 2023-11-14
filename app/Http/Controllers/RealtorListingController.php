@@ -37,7 +37,7 @@ class RealtorListingController extends Controller
 
     public function create()
     {
-        return inertia('Listing/Create');
+        return inertia('Realtor/Create');
     }
 
     public function store(Request $request)
