@@ -10,7 +10,9 @@
       <div v-if="user" class="flex items-center gap-4">
         <div class="relative">
           🔔
-          <div class="absolute -top-2 -right-2 bg-red-600 text-sm rounded-full w-5 h-5 font-semibold flex items-center justify-center">{{ notificationCount }}</div>
+          <div v-if="notificationCount" class="absolute -top-2 -right-2 bg-red-600 text-sm rounded-full w-5 h-5 font-semibold flex items-center justify-center">
+            {{ notificationCount }}
+          </div>
         </div>
         <Link :href="route('realtor.listing.index')">{{ user.name }}</Link>
         <Link class="btn-primary" :href="route('realtor.listing.create')">+ New Listing</Link>
