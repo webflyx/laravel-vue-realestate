@@ -11,7 +11,7 @@
         <Link class="text-blue-600" :href="route('realtor.listing.show', notification.data.listing)">listing</Link>
         was made
       </div>
-      <button class="btn-second font-medium uppercase">Mark as read</button>
+      <Link v-if="!notification.read_at" :href="route('notification.seen', notification )" method="put" as="button" class="btn-second font-medium uppercase">Mark as read</Link>
     </div>
   </div>
 </template>
